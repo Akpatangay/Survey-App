@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+
+<head>
+    <title>SURVEY APPLICATION</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body id="about">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand colr" href="#/">HOME</a>
+            </div>
+        </div>
+    </nav>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div>
+                    <p id="pstyle">SURVEY APPLICATION</p>
+                    <p id="pstyle" style="font-size: 40px !important;">YOUR OPINION MATTERS!</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <hr style="padding: 0; margin: 0; height: 5px; border: 0 solid rgb(250, 115, 27); border-top-width: 5px;" />
+    </div>
+    <br/>
+    <br/>
+    <ng-view></ng-view>
+
+    <div class="footer">
+    	<p>Copyright &copy; Ankita Patangay 2018</p>
+    </div>
+
+        <script type="text/javascript" src="angular/app.js"></script>
+        <script type="text/javascript" src="angular/services/dataService.js"></script>
+        <script type="text/javascript" src="angular/services/popover.js"></script>
+        <script type="text/javascript" src="angular/controllers/mainController.js"></script>
+        <script type="text/javascript" src="angular/controllers/allSurveyController.js"></script>
+        <script type="text/javascript" src="angular/controllers/singleSurveyController.js"></script>
+        <script type="text/javascript" src="angular/controllers/createSurveyController.js"></script>
+        <script type="text/javascript" src="angular/controllers/editSurveyController.js"></script>
+        <script type="text/javascript" src="angular/route.js"></script>
+</body>
+
+</html>

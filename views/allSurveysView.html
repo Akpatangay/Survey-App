@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <p id="wel">Welcome! Click on any of the below surveys you wish to take.</p>
+        <div ng-repeat="data in all.entireData">
+            <a href="#!/survey/{{data.surveyId}}">
+                <div class="jumbotron col-xs-6 col-sm-6 col-md-5">
+                    <p style="font-weight: bolder;">{{data.surveyTitle}}</p>
+                    <p style="font-size: 120%; font-weight: bolder;">{{data.surveySubtitle}}</p>
+                </div>
+            </a>
+        </div>
+        <ul class="pager">
+            <li class="next">
+                <a href="#/">Back to Home &rarr;</a>
+            </li>
+        </ul>
+    </div>
+</div>

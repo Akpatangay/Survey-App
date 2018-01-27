@@ -1,0 +1,19 @@
+<div>
+    <div class="container col-xs-12 col-sm-12 col-md-6">
+        <form action="/action_page.php" ng-submit="formSubmit($event)">
+            <div class="form-group">
+                <label style="background-color: rgb(250, 115, 27); padding:1.2%; font-family: Courier; font-size: 150%;">MANAGE SURVEY</label> <br/>
+                <label>Username: (Admin Login)</label>
+                <input type="text" class="form-control"  placeholder="Enter username" name="username" ng-model="username"/>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" placeholder="Enter password" name="password" ng-model="password"/>
+            </div>
+            <button type="submit" class="btn btn-default" >Submit</button>
+        </form>
+    </div>
+    <div class="container col-xs-12 col-sm-12 col-md-6">
+        <a class="button" role="button" href="#!/survey/allSurveys"> <img src="images/icon1.png" /> </a>
+    </div>
+</div>
