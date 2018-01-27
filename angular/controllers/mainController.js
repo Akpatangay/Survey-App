@@ -5,7 +5,7 @@ app.controller('mainController', ['$scope', '$location', function($scope, $locat
 
     $scope.formSubmit = function(ev) { 
     	ev.preventDefault();
-    	if($scope.username == "" || $scope.username == null || $scope.password == "" || $scope.password == null) {
+    	if($scope.username == "" || $scope.username == null || $scope.username != uName || $scope.password == "" || $scope.password == null || $scope.password != pwd ) {
     		alert("Please enter valid username and password.");
     	} else {
     		$location.path('/admin/allSurveys');

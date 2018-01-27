@@ -16,17 +16,22 @@ app.config(['$routeProvider', function($routeProvider) {
             controller:   'allSurveyController',
             controllerAs: 'all'
         })
+        .when('/admin/createSurvey', {
+            templateUrl:  'views/createSurveyView.html',
+            controller:   'createSurveyController',
+            controllerAs: 'create'
+        })
         .when('/survey/:surveyId', {
             templateUrl:  'views/allSurveysView.html',
             controller:   'singleSurveyController',
             controllerAs: 'single'
         })
-        .when('/survey/:surveyId/edit', {
+        .when('/admin/:surveyId/edit', {
             templateUrl:  'views/editSurveyView.html',
             controller:   'editSurveyController',
             controllerAs: 'edit'
         })
-        .when('/survey/:surveyId/delete', {
+        .when('/admin/:surveyId/delete', {
             templateUrl:  'views/editSurveyView.html',
             controller:   'editSurveyController',
             controllerAs: 'edit'

@@ -115,3 +115,27 @@ a{
     background-color: grey !important;
     margin: 2% !important;
 }
+textarea {
+    width: 60%;
+    height: 40%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 110%;
+    font-family: Courier;
+    resize: none;
+}
+#crt {
+    margin-left: 5% !important;
+}
+#lb {
+    font-size: 130%;
+    font-family: Courier;
+    font-weight: bolder;
+    background-color: rgb(250, 115, 27); 
+}
+#inp {
+    width: 45%;
+}
