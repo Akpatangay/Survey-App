@@ -22,7 +22,7 @@ app.config(['$routeProvider', function($routeProvider) {
             controllerAs: 'create'
         })
         .when('/survey/:surveyId', {
-            templateUrl:  'views/allSurveysView.html',
+            templateUrl:  'views/singleSurveyView.html',
             controller:   'singleSurveyController',
             controllerAs: 'single'
         })
@@ -33,13 +33,22 @@ app.config(['$routeProvider', function($routeProvider) {
         })
         .when('/admin/:surveyId/delete', {
             templateUrl:  'views/editSurveyView.html',
-            controller:   'editSurveyController',
-            controllerAs: 'edit'
+            controller:   'allSurveyController',
+            controllerAs: 'all'
         })
-
+        .when('/admin/:surveyId/question/create', {
+            templateUrl:  'views/adminCreateQuestionView.html',
+            controller:   'createQuestionController',
+            controllerAs: 'query'
+        })
+        .when('/admin/:surveyId', {
+            templateUrl:  'views/adminSingleSurveyView.html',
+            controller:   'adminSingleSurveyController',
+            controllerAs: 'admin'
+        })
         .otherwise(
             {
                 //redirectTo:'/'
-                template   : '<h1 style="text-align: center; color: white; font-family: fantasy !important; font-weight: bolder;">404 PAGE NOT FOUND</h1>'
+                template   : '<h1 style="text-align: center; color: brown; background-color: white; font-family: fantasy !important; font-weight: bolder;">404 PAGE NOT FOUND</h1>'
             });
 }]);

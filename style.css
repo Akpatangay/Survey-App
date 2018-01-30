@@ -58,8 +58,7 @@ img {
     font-family: Courier;
 }
 .footer {
-   position: fixed;
-   left: 0;
+   position: relative;
    bottom: 0;
    width: 100%;
    background-color: black;
@@ -113,12 +112,10 @@ a{
     font-weight: bolder !important;
     color: black !important;
     background-color: grey !important;
-    margin: 2% !important;
 }
-textarea {
+#txt, textarea {
     width: 60%;
     height: 40%;
-    padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -127,6 +124,7 @@ textarea {
     font-family: Courier;
     resize: none;
 }
+
 #crt {
     margin-left: 5% !important;
 }
@@ -138,4 +136,65 @@ textarea {
 }
 #inp {
     width: 45%;
+}
+#sub, #jum {
+    width: 60%;
+    position: relative;
+    left: 20%;
+    right: 20%;
+
+}
+.ed{
+    padding: 0 !important;
+}
+#sub {
+    background-color: white;
+    width: 80%;
+    left: 10%;
+    right: 10%;
+    padding-top: 1%;
+}
+#inst, #qu {
+    text-align: left;
+    font-size: 120% !important;
+    font-weight: bolder;
+}
+#inst {
+    font-size: 130% !important;
+}
+.edit {
+    font-family: Courier;
+    font-weight: bolder;
+    font-size: 120%;
+}
+.botx {
+    padding-left: 0.7% !important;
+    padding-right: 0.7% !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+}
+#bott {
+
+    font-size: 110% !important;
+    font-weight: bolder !important;
+    color: black !important;
+    background-color: grey !important;
+}
+#thank {
+    background-color: white;
+    text-align: center;
+    font-size: 150%;
+    font-family: Courier;
+    font-weight: bolder;
+    left: 10%;
+    right: 10%;
+    padding-top: 1%;
+}
+#for {
+    text-align: left !important;
+    font-size: 105% !important;
+    font-weight: bolder !important;
+    font-family: Courier !important;
+
 }

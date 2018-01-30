@@ -5,6 +5,13 @@ app.service('dataService', function($http) {
 
     //surveys section
 
+    this.getSurveys = function() {
+        return $http({
+            method: "GET",
+            url: main.url
+        })
+    }
+
     this.createSurvey = function(data) {
     	return $http({
     		method: "POST",
@@ -35,7 +42,7 @@ app.service('dataService', function($http) {
 
     //questions section
 
-    this.createQuestion = function(surveyId, data) {
+    this.createQuestion = function(data) {
         return $http({
             method: "POST",
             url   : main.url + surveyId + '/question/create',
@@ -65,7 +72,7 @@ app.service('dataService', function($http) {
 
     //options section
 
-    this.createOption = function(questionId, data) {
+    this.createOption = function(data) {
         return $http({
             method: "POST",
             url   : main.url + 'questions/' + questionId + '/options/create',
@@ -82,11 +89,11 @@ app.service('dataService', function($http) {
 
     //answers section 
 
-    this.createAnswer = function(questionId, data) {
+    this.createAnswer = function(OptId, myData) {
         return $http({
             method: "POST",
             url   : main.url + 'questions/' + questionId + '/answer/create',
-            data  : data
+            myData  : myData
 
         })
     }
@@ -97,12 +104,4 @@ app.service('dataService', function($http) {
         })
     }
 
-    //all surveys
-    
-    this.getSurveys = function() {
-        return $http({
-            method: "GET",
-            url: main.url
-        })
-    }
 });

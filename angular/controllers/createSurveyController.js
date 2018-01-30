@@ -15,7 +15,7 @@ app.controller('createSurveyController', ['dataService', '$location', function(d
             .then(function success(response) {
 
                 alert("Survey created successfully");
-                console.log(response);
+                console.log(response.data.data.surveyId);
 
                 $location.path('/admin/allSurveys');
 

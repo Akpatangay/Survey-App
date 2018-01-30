@@ -1,7 +1,43 @@
-<div class="container">
-	<div class="row">
-		<div class="jumbotron">
-			<p>{{single.data}}</p>
-		</div>
-	</div>
+<div class="container" ng-show="!single.showThankU">
+    <div class="row">
+        <div id="jum" class="jumbotron">
+            <p style="font-weight: bolder;">{{single.data.surveyTitle}}</p>
+            <p style="font-weight: bolder; font-size: 120%;">{{single.data.surveySubtitle}}</p>
+        </div>
+    </div>
+    <div class="row" id="sub">
+        <div class="jumbotron" id="sub">
+            <p id="inst">INSTRUCTIONS : {{single.data.instructions}}</p>
+            <div>
+                <p id="qu">Question: {{single.question[single.questionNum].questionText}}</p>
+                <p id="qu">Options:
+                    <form id="for">
+                        <div class="radio" ng-repeat="option in single.question[single.questionNum].questionOptions">
+                            <label id="qu" style="font-size: 105% !important;">
+                                <input type="radio" name="optradio"/>{{option}}</label>
+                        </div>
+                    </form>
+                </p>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <input type="button" class="btn btn-default" value="Next" ng-click="single.nextQuestion()"/>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <input type="button" class="btn btn-default" value="Skip" />
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <input type="button" class="btn btn-default" value="End Survey" />
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" ng-show="single.showThankU">
+    <div id="wel">
+        <p>Thank you for taking the time to complete this survey. We truly value the information you have provided. </p>
+    </div>
 </div>
