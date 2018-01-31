@@ -2,11 +2,11 @@ app.controller('createQuestionController', ['dataService', '$routeParams', '$loc
 	var main = this;
 	this.surveyId = $routeParams.surveyId;
 
-	 this.cretQuestion = function() {
+	 this.cretQuestion = function(surveyId) { debugger;
 
-	 	data = { question : main.question };
+	 	data = { questionText : main.questionText };
 
-	 	dataService.createQuestion(surveyId, data)
+	 	dataService.createQuestion(main.surveyId, data)
 	 	.then(function success(response) {
 
 	 		alert("Question created successfully!");

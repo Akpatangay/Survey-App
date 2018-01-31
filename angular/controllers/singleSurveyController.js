@@ -4,6 +4,7 @@ app.controller('singleSurveyController', ['dataService', '$routeParams', functio
     this.maxQuestions = 0;
     this.questionNum = 0;
     this.showThankU = false;
+    this.next = false;
 
     this.fetchSingleSurvey = function() {
 
@@ -29,6 +30,7 @@ app.controller('singleSurveyController', ['dataService', '$routeParams', functio
 
                 main.question = response.data.data;
                 main.maxQuestions = main.question.length;
+                main.OptNumber = null;
                 console.log(response);
 
             }, function error(response) {
@@ -57,12 +59,32 @@ app.controller('singleSurveyController', ['dataService', '$routeParams', functio
     };
 
     this.nextQuestion = function() {
+
         main.questionNum++;
+        main.OptNumber++;
+
         if(main.questionNum < main.maxQuestions) {
+
+            main.userAnswer(questionId , main.OptNumber);
             return main.questionNum;  
+
         } else {
+
             main.showThankU = true;
         }
 
-    }
+    };
+
+    this.skipQuestion = function() {
+
+        main.OptNumber = -1;
+        main.nextQuestion();
+    };
+    
+    this.endSurvey = function() {
+
+        if(confirm("Are you sure you want to end the survey?")) {
+            return main.showThankU = true;   
+        }    
+    };
 }]);

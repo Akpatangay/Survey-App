@@ -26,32 +26,29 @@
             <div ng-repeat="query in admin.question">
                 <p id="qu">Question: {{query.questionText}}
                     <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <input type="button" class="btn btn-primary btn-xs botx" style="font-size: 100%;" value="&#10006;" ng-click="admin.adminDelQuestion(admin.data.questionId)" />
+                    <input type="button" class="btn btn-primary btn-xs botx" style="font-size: 100%;" value="&#10006;" ng-click="admin.adminDelQuestion(query.questionId, $index)" />
+                    <br/>
                     <p id="qu">Options:
-                        <form id="for">
-                            <div class="radio" ng-repeat="option in query.questionOptions">
-                                <label id="for">
-                                    <input type="radio" name="optradio" />{{option}}</label>
-                            </div>
-                        </form>
+                        <div class="radio" ng-repeat="option in query.questionOptions">
+                            <input type="button" class="btn btn-primary btn-xs botx" style="font-size: 100%;" value="&#10006;" ng-click="admin.adminDelOption(query.questionId, $index)" />
+                            <label id="for">
+                                <input type="radio" name="optradio" />{{option}}
+                            </label>
+                        </div>
                     </p>
                     <div ng-show="admin.IsVisible">
-                        <form style="margin-left: 0 !important;" ng-submit="admin.adminCretOption()">
-                            <input type="text" id="txt" />
+                        <form style="margin-left: 0 !important;" ng-submit="admin.adminCretOption(query.questionId, $index)">
+                            <input type="text" ng-model="option" id="txt" />
                             <input type="submit" value="Submit" class="btn" style="font-family: Courier !important; font-weight: bolder; font-size: 105% !important; padding: 0 !important;" />
                         </form>
                     </div>
-                    <div>
-                        <div>
-                            <input type="button" class="btn btn-default" value="Add Option" ng-click="admin.ShowHide()" />
-                        </div>
-                    </div>
-                    <br/>
-                    <br/>
                 </p>
+                <div>
+                    <input type="button" class="btn btn-default" value="Add Option" ng-click="admin.ShowHide()" />
+                </div>
             </div>
-            <br/>
-            <br/>
         </div>
     </div>
+    <br/>
+    <br/>
 </div>

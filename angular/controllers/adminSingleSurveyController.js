@@ -1,9 +1,9 @@
-app.controller('adminSingleSurveyController', ['dataService', '$routeParams', '$location', function(dataService, $routeParams, $location) {
+app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeParams', '$location', function(dataService, $route, $routeParams, $location) {
 
     var main = this;
     this.surveyId = $routeParams.surveyId;
     this.IsVisible = false;
-    this.ShowHide = function() { debugger;
+    this.ShowHide = function() {
         //If DIV is visible it will be hidden and vice versa.
         main.IsVisible = main.IsVisible ? false : true;
     };
@@ -37,6 +37,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$routeParams', '$
 
                     alert("Survey deleted successfully!");
                     console.log(response);
+                    $location.path('/admin/allSurveys')
 
                 }, function error(response) {
 
@@ -55,6 +56,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$routeParams', '$
             .then(function success(response) {
 
                 main.question = response.data.data;
+                
                 console.log(response);
 
             }, function error(response) {
@@ -66,7 +68,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$routeParams', '$
 
     this.adminCreateQuestion = function() {
 
-        data = { question: main.question };
+        data = { questionText: main.questionText };
 
         dataService.createQuestion(data)
 
@@ -74,6 +76,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$routeParams', '$
 
                 alert("Question created successfully!");
                 console.log(response);
+                $location.path('/admin/main.surveyId')
 
             }, function error(response) {
 
@@ -85,7 +88,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$routeParams', '$
 
     this.adminEditQuestions = function(questionId) {
 
-        data = { originalQuestion: Question };
+        data = { questionText : main.questionText };
 
         if (confirm("Are you sure you want to make changes?")) {
 
@@ -96,6 +99,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$routeParams', '$
 
                     alert("Question edited successfully!");
                     console.log(response);
+                    $route.reload();
 
                 }, function error(response) {
 
@@ -115,6 +119,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$routeParams', '$
 
                     alert("Question deleted successfully!");
                     console.log(response);
+                    $route.reload();
 
                 }, function error(response) {
 
@@ -125,7 +130,9 @@ app.controller('adminSingleSurveyController', ['dataService', '$routeParams', '$
     };
 
     //Option section
-    this.adminCretOption = function(questionId) {
+    this.adminCretOption = function(questionId, ) {
+
+        data = { questionOptions : main.questionOptions }
 
         dataService.createOption(questionId, data)
 
@@ -133,6 +140,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$routeParams', '$
 
                 alert("Option created successfully!");
                 console.log(response);
+                $route.reload();
 
             }, function error(response) {
 
@@ -151,8 +159,18 @@ app.controller('adminSingleSurveyController', ['dataService', '$routeParams', '$
 
                     alert("Option deleted successfully!");
 
-                    main.entireData.splice(index, 1);
+                    for (var i in main.question) {
+
+                        main.options = main.question[i].questionOptions;
+
+                        if (main.options.length) {
+
+                            return main.options.splice(index, 1);
+                        }
+
+                    }
                     console.log(response);
+                    $route.reload();
 
                 }, function error(response) {
 
@@ -174,6 +192,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$routeParams', '$
 
                     alert("Answer deleted successfully!");
                     console.log(response);
+                    $route.reload();
 
                 }, function error(response) {
 
