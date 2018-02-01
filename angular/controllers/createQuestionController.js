@@ -12,7 +12,8 @@ app.controller('createQuestionController', ['dataService', '$routeParams', '$loc
 	 		alert("Question created successfully!");
 	 		console.log(response);
 
-	 		$location.path('/admin/main.surveyId');
+	 		$location.path('/admin/'+ main.surveyId);
+
 
 	 	}, function error(response) {
 	 		

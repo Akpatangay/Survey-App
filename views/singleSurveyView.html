@@ -1,20 +1,20 @@
 <div class="container" ng-show="!single.showThankU">
     <div class="row">
         <div id="jum" class="jumbotron">
-            <p style="font-weight: bolder;">{{single.data.surveyTitle}}</p>
-            <p style="font-weight: bolder; font-size: 120%;">{{single.data.surveySubtitle}}</p>
+            <p style="font-weight: bolder;">{{single.data.surveyTitle | capitalize}}</p>
+            <p style="font-weight: bolder; font-size: 120%;">{{single.data.surveySubtitle | capitalize}}</p>
         </div>
     </div>
     <div class="row" id="sub">
         <div class="jumbotron" id="sub">
             <p id="inst">INSTRUCTIONS : {{single.data.instructions}}</p>
             <div> 
-                <p id="qu">Question {{single.questionNum + 1}}: {{single.question[single.questionNum].questionText}}</p>
+                <p id="qu">Question {{single.questionNum + 1}}: {{single.question[single.questionNum].questionText | capitalize}}</p>
                 <p id="qu">Options:
                     <form id="for">
                         <div class="radio" ng-repeat="option in single.question[single.questionNum].questionOptions">
                             <label id="qu" style="font-size: 105% !important;">
-                                <input type="radio" ng-model="single.OptNumber" name="optradio"/>{{option}}</label>
+                                <input type="radio" ng-model="single.OptNumber" name="optradio"/>{{option | capitalize}}</label>
                         </div>
                     </form>
                 </p>
@@ -22,13 +22,13 @@
             <br/>
             <br/>
             <div>
-                <div class="col-xs-4 col-sm-4 col-md-3">
+                <div class="col-xs-12 col-sm-12 col-md-3">
                     <input type="button" class="btn btn-default" value="Next" ng-click="single.nextQuestion()"/>
                 </div>
-                <div class="col-xs-4 col-sm-4 col-md-3">
+                <div class="col-xs-12 col-sm-12 col-md-3">
                     <input type="button" class="btn btn-default" value="Skip" ng-click="single.skipQuestion()" />
                 </div>
-                <div class="col-xs-4 col-sm-4 col-md-3">
+                <div class="col-xs-12 col-sm-12 col-md-3">
                     <input type="button" class="btn btn-default" value="End Survey" ng-click="single.endSurvey()" />
                 </div>
                 <div class="col-md-3"></div>
@@ -38,6 +38,6 @@
 </div>
 <div class="container" ng-show="single.showThankU">
     <div id="wel">
-        <p>Thank you for taking the time to complete this survey. We truly value the information you have provided. </p>
+        <p id="end">Thank you for taking the time to complete this survey. We truly value the information you have provided. </p>
     </div>
 </div>

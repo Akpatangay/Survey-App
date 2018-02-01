@@ -42,7 +42,7 @@ app.service('dataService', function($http) {
 
     //questions section
 
-    this.createQuestion = function(surveyId, data) {
+    this.createQuestion = function(surveyId, data) { debugger;
         return $http({
             method: "POST",
             url   : main.url + surveyId + '/question/create',

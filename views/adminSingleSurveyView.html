@@ -1,15 +1,15 @@
 <div class="container">
     <div class="row">
-        <div id="jum" class="jumbotron">
-            <p style="font-weight: bolder;">{{admin.data.surveyTitle}}</p>
-            <p style="font-weight: bolder; font-size: 120%;">{{admin.data.surveySubtitle}}</p>
+        <div id="jum" class="jumbotron col-xs-12 col-sm-12">
+            <p style="font-weight: bolder;">{{admin.data.surveyTitle | capitalize}}</p>
+            <p style="font-weight: bolder; font-size: 120%;">{{admin.data.surveySubtitle | capitalize}}</p>
             <br/>
             <div>
                 <a href="#!/admin/{{admin.surveyId}}/edit">
                     <input id="bott" type="button" class="btn btn-primary btn-xs" value=" Edit Survey" />
                 </a>
                 <button id="bott" type="button" class="btn btn-primary btn-xs" ng-click="admin.deleteSurvey(admin.data.surveyId)">Delete Survey </button>
-                <a href="#!/admin/admin.data.surveyId/question/create">
+                <a ng-href="#!/admin/{{admin.data.surveyId}}/question/create">
                     <input id="bott" type="button" class="btn btn-primary btn-xs" value=" Create Question" />
                 </a>
                 <a href="#">
@@ -20,32 +20,43 @@
     </div>
     <div class="row" id="sub">
         <div class="jumbotron" id="sub">
-            <p id="inst">INSTRUCTIONS : {{admin.data.instructions}}</p>
+            <p id="inst">INSTRUCTIONS : {{admin.data.instructions | capitalize}}</p>
             <br/>
             <br/>
             <div ng-repeat="query in admin.question">
-                <p id="qu">Question: {{query.questionText}}
-                    <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <input type="button" class="btn btn-primary btn-xs botx" style="font-size: 100%;" value="&#10006;" ng-click="admin.adminDelQuestion(query.questionId, $index)" />
+                <p id="qu">Question: {{query.questionText | capitalize}}
+                    <input type="button" name="edit question" style="padding: 0.5% !important;" class="glyphicon glyphicon-pencil" value="&#x270f;" ng-click="admin.adminEditQuestions(query.questionId)" />
+                    <input type="button" class="btn btn-primary btn-xs botx" style="font-size: 100%; padding: 0.8% !important;" value="&#10006;" ng-click="admin.adminDelQuestion(query.questionId, $index)" />
                     <br/>
                     <p id="qu">Options:
                         <div class="radio" ng-repeat="option in query.questionOptions">
-                            <input type="button" class="btn btn-primary btn-xs botx" style="font-size: 100%;" value="&#10006;" ng-click="admin.adminDelOption(query.questionId, $index)" />
                             <label id="for">
-                                <input type="radio" name="optradio" />{{option}}
+                                <input type="radio" name="optradio" />{{option | capitalize}}
                             </label>
                         </div>
                     </p>
                     <div ng-show="admin.IsVisible">
                         <form style="margin-left: 0 !important;" ng-submit="admin.adminCretOption(query.questionId, $index)">
-                            <input type="text" ng-model="option" id="txt" />
+                            <input type="text" ng-model="admin.questionOptions" id="txt" />
                             <input type="submit" value="Submit" class="btn" style="font-family: Courier !important; font-weight: bolder; font-size: 105% !important; padding: 0 !important;" />
                         </form>
                     </div>
+                    <div>
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <input type="button" class="btn btn-default" value="Add Option" ng-click="admin.ShowHide()" />
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4" ng-show="{{query.questionOptions.length}}">
+                            <input type="button" class="btn btn-default" value="Delete Options" ng-click="admin.adminDelOption(query.questionId, $index)" />
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <input type="button" class="btn btn-default" value="Delete Answers" ng-click="admin.adminDelAnswers(query.questionId, $index)" />
+                        </div>
+                        <br/>
+                        <br/>
+                    </div>
                 </p>
-                <div>
-                    <input type="button" class="btn btn-default" value="Add Option" ng-click="admin.ShowHide()" />
-                </div>
+                <br/>
+                <br/>
             </div>
         </div>
     </div>

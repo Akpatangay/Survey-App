@@ -56,7 +56,11 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
             .then(function success(response) {
 
                 main.question = response.data.data;
-                
+                for (var i in main.question) {
+
+                    main.questionId = main.question[i].questionId;
+                }
+
                 console.log(response);
 
             }, function error(response) {
@@ -66,29 +70,9 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
             });
     }();
 
-    this.adminCreateQuestion = function() {
-
-        data = { questionText: main.questionText };
-
-        dataService.createQuestion(data)
-
-            .then(function success(response) {
-
-                alert("Question created successfully!");
-                console.log(response);
-                $location.path('/admin/main.surveyId')
-
-            }, function error(response) {
-
-                alert("some error occured, check the console.");
-                console.log(response);
-
-            });
-    };
-
     this.adminEditQuestions = function(questionId) {
 
-        data = { questionText : main.questionText };
+        data = { questionText: main.questionText };
 
         if (confirm("Are you sure you want to make changes?")) {
 
@@ -130,9 +114,9 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
     };
 
     //Option section
-    this.adminCretOption = function(questionId, ) {
+    this.adminCretOption = function(questionId) {
 
-        data = { questionOptions : main.questionOptions }
+        data = { questionOptions: main.questionOptions }
 
         dataService.createOption(questionId, data)
 
@@ -157,18 +141,8 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
 
                 .then(function success(response) {
 
-                    alert("Option deleted successfully!");
+                    alert("Options deleted successfully!");
 
-                    for (var i in main.question) {
-
-                        main.options = main.question[i].questionOptions;
-
-                        if (main.options.length) {
-
-                            return main.options.splice(index, 1);
-                        }
-
-                    }
                     console.log(response);
                     $route.reload();
 
@@ -182,7 +156,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
 
 
     //answer section
-    this.adminDelAnswer = function(questionId, index) {
+    this.adminDelAnswers = function(questionId, index) {
 
         if (confirm("Are you sure you want to delete?")) {
 

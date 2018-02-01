@@ -2,12 +2,12 @@
     <div class="row">
         <p id="wel">Welcome! Click on any of the below surveys you wish to take.</p>
     </div>
-    <div class="row">
+    <div class="row survey">
         <div ng-repeat="data in all.entireData">
             <a href="#!/survey/{{data.surveyId}}">
-                <div class="jumbotron col-xs-6 col-sm-6 col-md-5">
-                    <p style="font-weight: bolder;">{{data.surveyTitle}}</p>
-                    <p style="font-size: 120%; font-weight: bolder;">{{data.surveySubtitle}}</p>
+                <div class="jumbotron col-xs-10 col-sm-10 col-md-5">
+                    <p style="font-weight: bolder;">{{data.surveyTitle | capitalize}}</p>
+                    <p style="font-size: 120%; font-weight: bolder;">{{data.surveySubtitle | capitalize}}</p>
                 </div>
             </a>
         </div>
