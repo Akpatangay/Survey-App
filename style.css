@@ -12,6 +12,9 @@ body {
 btn {
     background-color: rgb(250, 115, 27) !important;
 }
+#log {
+    margin-right: 10% !important;
+}
 
 #pstyle {
     font-weight: bolder;
@@ -279,4 +282,3 @@ textarea {
         background-color: rgb(250, 115, 27) !important;
     }
 }
-@media screen and (max-width: 500px)
