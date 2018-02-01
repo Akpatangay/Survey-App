@@ -2,7 +2,7 @@
     <div class="row">
         <div id="main" ng-repeat="data in all.entireData">
             <div class="jumbotron col-xs-9 col-sm-9 col-md-5">
-                <p style="font-weight: bolder;">{{data.surveyTitle | capitalize}}</p>
+                <p style="font-weight: bolder;"><u>{{data.surveyTitle | capitalize}}</u></p>
                 <p style="font-size: 120%; font-weight: bolder;">{{data.surveySubtitle | capitalize}}</p>
                 <div class="col-xs-12 col-sm-12 col-md-3"></div>
                 <div class="col-xs-12 col-sm-12 col-md-3" style="margin-bottom: 2% !important;">
@@ -22,9 +22,11 @@
         </div>
     </div>
     <br/><br/>
-    <div class="col-xs-12 col-sm-6 col-md-3 float-right">
+    <div class="col-md-8"></div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
         <a href="#!/admin/createSurvey">
-            <div class="jumbotron jumb">Create Survey</div>
+            <div class="jumbotron jumb" id="cret">Create Survey</div>
         </a>
+        <br/><br/>
     </div>
 </div>

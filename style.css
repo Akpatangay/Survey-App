@@ -9,9 +9,6 @@ body {
     margin-bottom: 0;
 }
 
-btn {
-    background-color: rgb(250, 115, 27) !important;
-}
 #log {
     margin-right: 10% !important;
 }
@@ -77,18 +74,21 @@ img {
 }
 
 .footer {
-    position: relative;
+    /*position: absolute;
     bottom: 0;
     width: 100%;
+    top: 100% !important;
+    height: 8% !important;*/
     background-color: black;
     color: white;
     text-align: center;
     padding: 0.8%;
+    margin-top: 10% !important;
 }
 
 .jumbotron {
     box-sizing: border-box !important;
-    padding: 0;
+    padding: 0 !important;
     margin: 1%;
     font-weight: bolder;
     font-family: Courier;
@@ -98,6 +98,9 @@ img {
 
 a {
     color: black !important;
+}
+#cret {
+    padding: 2% !important;
 }
 
 #wel {
@@ -114,16 +117,14 @@ a {
 .jumb {
     background-color: grey !important;
     font-weight: bolder;
-    /*position: fixed !important;*/
-    bottom: 10% !important;
-    /*float: right !important;*/
-    padding: 1%;
     font-size: 125%;
 }
+#main {
+        margin-left: 3% !important;
+    }
 
 .next {
     position: relative;
-    !important;
     bottom: 10% !important;
     right: 1% !important;
     padding: 1% !important;
@@ -186,6 +187,9 @@ textarea {
     right: 10%;
     padding-top: 1%;
 }
+.survey {
+        margin-left: 5% !important;
+}
 
 #inst,
 #qu {
@@ -238,21 +242,16 @@ textarea {
     font-family: Courier !important;
 }
 
-@media screen and (max-width: 500px) {
-    #take {
-        max-width: 90% !important;
-        height: auto !important;
-        margin-left: 5% !important;
-        margin-bottom: 5% !important;
-    }
+@media screen and (max-width: 800px) {
+    
     #log {
         margin-left: 5% !important;
     }
     #pstyle {
-        font-size: 250% !important;
+        font-size: 350% !important;
     }
     #psubstyle {
-        font-size: 150% !important;
+        font-size: 250% !important;
     }
     #wel {
         margin: 5% !important;
@@ -277,6 +276,21 @@ textarea {
     }
     #inst {
     font-size: 115% !important;
+    }
+    
+}
+@media screen and (max-width: 500px) {
+    #pstyle {
+        font-size: 250% !important;
+    }
+    #psubstyle {
+        font-size: 150% !important;
+    }
+    #take {
+        max-width: 90% !important;
+        height: auto !important;
+        margin-left: 5% !important;
+        margin-bottom: 5% !important;
     }
     #lab {
         background-color: rgb(250, 115, 27) !important;

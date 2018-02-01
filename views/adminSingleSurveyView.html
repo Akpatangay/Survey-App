@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div id="jum" class="jumbotron col-xs-12 col-sm-12">
-            <p style="font-weight: bolder;">{{admin.data.surveyTitle | capitalize}}</p>
+            <p style="font-weight: bolder;"><u>{{admin.data.surveyTitle | capitalize}}</u></p>
             <p style="font-weight: bolder; font-size: 120%;">{{admin.data.surveySubtitle | capitalize}}</p>
             <br/>
             <div>
@@ -28,7 +28,7 @@
                     <input type="button" name="edit question" style="padding: 0.5% !important;" class="glyphicon glyphicon-pencil" value="&#x270f;" ng-click="admin.adminEditQuestions(query.questionId)" />
                     <input type="button" class="btn btn-primary btn-xs botx" style="font-size: 100%; padding: 0.8% !important;" value="&#10006;" ng-click="admin.adminDelQuestion(query.questionId, $index)" />
                     <br/>
-                    <p id="qu">Options:
+                    <p id="qu">Options:{{query.questionId}}
                         <div class="radio" ng-repeat="option in query.questionOptions">
                             <label id="for">
                                 <input type="radio" name="optradio" />{{option | capitalize}}
