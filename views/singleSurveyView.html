@@ -1,32 +1,32 @@
 <div class="container" ng-show="!single.showThankU">
     <div class="row">
         <div id="jum" class="jumbotron">
-            <p style="font-weight: bolder;">{{single.data.surveyTitle | capitalize}}</p>
-            <p style="font-weight: bolder; font-size: 120%;">{{single.data.surveySubtitle | capitalize}}</p>
+            <p style="font-weight: bolder;"><u>{{single.data.surveyTitle}}</u></p>
+            <p style="font-weight: bolder; font-size: 120%;">{{single.data.surveySubtitle}}</p>
         </div>
     </div>
     <div class="row" id="sub">
         <div class="jumbotron" id="sub" style="margin-bottom: 10% !important;">
             <p id="inst">INSTRUCTIONS : {{single.data.instructions}}</p>
             <div> 
-                <p id="qu">Question {{single.questionNum + 1}}: {{single.question[single.questionNum].questionText | capitalize}}</p>
+                <p id="qu">Question {{single.questionNum + 1}}: {{single.question[single.questionNum].questionText}}</p>
                 <p id="qu">Options:
                     <form id="for">
-                        <div class="radio" ng-repeat="option in single.question[single.questionNum].questionOptions">
+                        <div class="radio" ng-repeat="option in single.question[single.questionNum].questionOptions track by $index">
                             <label id="qu" style="font-size: 105% !important;">
-                                <input type="radio" ng-model="single.OptNumber" name="optradio"/>{{option | capitalize}}</label>
+                                <input type="radio" ng-model="single.OptNumber" name="optradio" ng-change="single.showNext();" ng-value="{{$index}}" />{{option}}</label>
                         </div>
                     </form>
                 </p>
-            </div>
+            </div>  
             <br/>
             <br/>
             <div>
                 <div class="col-xs-12 col-sm-12 col-md-3">
-                    <input type="button" class="btn btn-default" value="Next" ng-click="single.nextQuestion()"/>
+                    <input type="button" class="btn btn-default" value="Next" ng-click="single.nextQuestion(single.question[single.questionNum].questionId)" ng-show="single.next"/>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-3">
-                    <input type="button" class="btn btn-default" value="Skip" ng-click="single.skipQuestion()" />
+                    <input type="button" class="btn btn-default" value="Skip" ng-click="single.skipQuestion(single.question[single.questionNum].questionId)" />
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-3">
                     <input type="button" class="btn btn-default" value="End Survey" ng-click="single.endSurvey()" />

@@ -37,9 +37,14 @@ app.config(['$routeProvider', function($routeProvider) {
             controllerAs: 'all'
         })
         .when('/admin/:surveyId/question/create', {
-            templateUrl:  'views/adminCreateQuestionView.html',
+            templateUrl:  'views/createQuestionView.html',
             controller:   'createQuestionController',
             controllerAs: 'query'
+        })
+        .when('/admin/:surveyId/question/:questionId/edit', {
+            templateUrl:  'views/editQuestionView.html',
+            controller:   'editQuestionController',
+            controllerAs: 'editQ'
         })
         .when('/admin/:surveyId', {
             templateUrl:  'views/adminSingleSurveyView.html',

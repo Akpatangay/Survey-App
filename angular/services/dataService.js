@@ -66,13 +66,14 @@ app.service('dataService', function($http) {
     this.deleteQuestion = function(questionId) {
         return $http({
             method: "POST",
-            url: main.url + 'questions/' + questionId + '/delete'
+            url   : main.url + 'questions/' + questionId + '/delete'
         })
     }
 
     //options section
 
-    this.createOption = function(data) {
+    this.createOption = function(questionId, data) {
+
         return $http({
             method: "POST",
             url   : main.url + 'questions/' + questionId + '/options/create',
@@ -80,6 +81,7 @@ app.service('dataService', function($http) {
     
         })
     }
+    
     this.deleteOption = function(questionId) {
         return $http({
             method: "POST",
@@ -89,11 +91,11 @@ app.service('dataService', function($http) {
 
     //answers section 
 
-    this.createAnswer = function(OptId, myData) {
+    this.createAnswer = function(questionId, myData) {
         return $http({
             method: "POST",
             url   : main.url + 'questions/' + questionId + '/answer/create',
-            myData  : myData
+            data  : myData
 
         })
     }

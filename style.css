@@ -85,6 +85,9 @@ img {
     padding: 0.8%;
     margin-top: 10% !important;
 }
+.coll {
+    margin-left: 50% !important;
+}
 
 .jumbotron {
     box-sizing: border-box !important;
@@ -109,7 +112,7 @@ a {
     font-weight: bolder;
     font-size: 180%;
     text-align: center;
-    color: brown;
+    color: grey;
     background-color: white;
     padding: 0;
 }

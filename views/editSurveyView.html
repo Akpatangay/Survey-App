@@ -2,17 +2,17 @@
     <form id="crt" ng-submit="edit.editSurveys(edit.surveyId)">
         <label id="lb">Survey Title:</label>
         <br/>
-        <input id="inp" type="text" name="surveyTitle" ng-model="edit.surveyTitle"/>
+        <input id="inp" type="text" name="surveyTitle" ng-model="edit.surveyTitle" required="" />
         <br/>
         <br/>
         <label id="lb">Survey Subtitle:</label>
         <br/>
-        <input id="inp" type="text" name="surveySubtitle" ng-model="edit.surveySubtitle"/>
+        <input id="inp" type="text" name="surveySubtitle" ng-model="edit.surveySubtitle" required="" />
         <br/>
         <br/>
         <label id="lb">Instructions:</label>
         <br/>
-        <textarea ng-model="edit.instructions"></textarea>
+        <textarea ng-model="edit.instructions" required=""></textarea>
         <br/>
         <br/>
         <input type="submit" value="Edit" class="btn" style="font-family: Courier !important; font-weight: bolder; font-size: 125% !important;" />
@@ -20,19 +20,3 @@
 </div>
 
 
-
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-6">
-            <div>
-                <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#ques" style="font-family: Courier !important; font-weight: bolder; font-size: 110% !important;">Create Questions</button>
-                <div id="ques" class="collapse">
-                    <input id="inp" type="text" placeholder="Enter question" />
-                </div>
-            </div>
-            <div>
-            <button type="button" class="btn btn-default" style="font-family: Courier !important; font-weight: bolder; font-size: 110% !important;">Create Options</button>
-        </div>
-        </div>
-    </div>
-</div> -->

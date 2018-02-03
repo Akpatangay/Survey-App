@@ -7,6 +7,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
         //If DIV is visible it will be hidden and vice versa.
         main.IsVisible = main.IsVisible ? false : true;
     };
+    
 
     //loading survey
     this.fetchSingleSurvey = function() {
@@ -56,10 +57,6 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
             .then(function success(response) {
 
                 main.question = response.data.data;
-                for (var i in main.question) {
-
-                    main.questionId = main.question[i].questionId;
-                }
 
                 console.log(response);
 
@@ -114,15 +111,16 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
     };
 
     //Option section
-    this.adminCretOption = function(questionId) {
+    this.adminCretOption = function(questionId, data) {
 
-        data = { questionOptions: main.questionOptions }
+        data = {optionText: data}
 
         dataService.createOption(questionId, data)
 
             .then(function success(response) {
 
                 alert("Option created successfully!");
+
                 console.log(response);
                 $route.reload();
 

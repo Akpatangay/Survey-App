@@ -41,9 +41,9 @@ app.controller('singleSurveyController', ['dataService', '$routeParams', functio
             });
     }();
 
-    this.userAnswer = function(questionId, OptNumber) {
+    this.userAnswer = function(questionId, OptNumber) { 
 
-        myData = { answer: OptNumber };
+        myData = { selectedOptionNumber : OptNumber };
 
         dataService.createAnswer(questionId, myData)
 
@@ -58,27 +58,30 @@ app.controller('singleSurveyController', ['dataService', '$routeParams', functio
             });
     };
 
-    this.nextQuestion = function() {
-
+    this.nextQuestion = function(questionId, fromSkipQuestion) {
         main.questionNum++;
-        main.OptNumber++;
+        main.OptNumber = main.OptNumber + 1;
+
+        if(fromSkipQuestion) {
+            main.OptNumber = 0;            
+        }
 
         if(main.questionNum < main.maxQuestions) {
 
-            main.userAnswer(questionId , main.OptNumber);
+            main.userAnswer(questionId, main.OptNumber);
             return main.questionNum;  
 
         } else {
 
             main.showThankU = true;
         }
-
     };
+    this.showNext = function() {
+        main.next = true;
+    }
 
-    this.skipQuestion = function() {
-
-        main.OptNumber = -1;
-        main.nextQuestion();
+    this.skipQuestion = function(questionId) {
+        main.nextQuestion(questionId, true);
     };
     
     this.endSurvey = function() {
