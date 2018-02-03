@@ -36,7 +36,7 @@
                             </div>
                         </form>
                     </p>
-                    <div ng-show="admin.IsVisible">
+                    <div ng-show="admin.IsVisible[$index]">
                         <form style="margin-left: 0 !important;" ng-submit="admin.adminCretOption(query.questionId, admin.questionOptions)">
                             <input type="text" ng-model="admin.questionOptions" id="txt" />
                             <input type="submit" value="Submit" class="btn" style="font-family: Courier !important; font-weight: bolder; font-size: 105% !important; padding: 0 !important;" />
@@ -44,7 +44,7 @@
                     </div>
                     <div>
                         <div class="col-xs-12 col-sm-6 col-md-4" ng-if="query.questionId">
-                            <input type="button" class="btn btn-default" value="Add Option" ng-click="admin.ShowHide()" />
+                            <input type="button" class="btn btn-default" value="Add Option" ng-click="admin.ShowHide($index)" />
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-4" ng-show="{{query.questionOptions.length}}">
                             <input type="button" class="btn btn-default" value="Delete Options" ng-click="admin.adminDelOption(query.questionId, $index)" />

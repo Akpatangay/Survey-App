@@ -2,10 +2,10 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
 
     var main = this;
     this.surveyId = $routeParams.surveyId;
-    this.IsVisible = false;
-    this.ShowHide = function() {
+    this.IsVisible = [];
+    this.ShowHide = function(index) {
         //If DIV is visible it will be hidden and vice versa.
-        main.IsVisible = main.IsVisible ? false : true;
+        main.IsVisible[index] = main.IsVisible[index] ? false : true;
     };
     
 

@@ -66,14 +66,16 @@ app.controller('singleSurveyController', ['dataService', '$routeParams', functio
             main.OptNumber = 0;            
         }
 
-        if(main.questionNum < main.maxQuestions) {
+        if(main.questionNum === main.maxQuestions) {
 
-            main.userAnswer(questionId, main.OptNumber);
-            return main.questionNum;  
+            main.showThankU = true;
+              
 
         } else {
 
-            main.showThankU = true;
+            main.userAnswer(questionId, main.OptNumber);
+            main.OptNumber = null;
+            return main.questionNum;
         }
     };
     this.showNext = function() {
