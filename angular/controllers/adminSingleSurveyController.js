@@ -3,11 +3,13 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
     var main = this;
     this.surveyId = $routeParams.surveyId;
     this.IsVisible = [];
+    this.result = [];
     this.ShowHide = function(index) {
+        debugger;
         //If DIV is visible it will be hidden and vice versa.
         main.IsVisible[index] = main.IsVisible[index] ? false : true;
     };
-    
+
 
     //loading survey
     this.fetchSingleSurvey = function() {
@@ -113,7 +115,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
     //Option section
     this.adminCretOption = function(questionId, data) {
 
-        data = {optionText: data}
+        data = { optionText: data }
 
         dataService.createOption(questionId, data)
 
@@ -173,6 +175,33 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
 
                 });
         }
+    };
+
+    this.stats = function(surveyId) { debugger;
+
+        var questions = main.question;
+
+        if (questions) {
+            for (var i = 0; i < questions.length; i++) {
+                var question = questions[i];
+                var resultObj = {};
+                resultObj["qT"] = question.questionText;
+                resultObj["stats"] = {};
+                resultObj["stats"]["skipOption"] = 0;
+                for (var j = 0; j < question.questionOptions.length; j++) {
+                    resultObj["stats"][question.questionOptions[j]] = 0;
+                    for (var k = 0; k < question.answers.length; k++) {
+                        if (question.answers[k] == j + 1) {
+                            resultObj["stats"][question.questionOptions[j]]++;
+                        } else if (question.answers[k] == 0 && j == 0) {
+                            resultObj["stats"]["skipOption"]++;
+                        }
+                    }
+                }
+                main.result.push(resultObj);
+            }
+        }
+
     };
 
 }]);

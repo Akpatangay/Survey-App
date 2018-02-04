@@ -58,7 +58,7 @@ app.controller('singleSurveyController', ['dataService', '$routeParams', functio
             });
     };
 
-    this.nextQuestion = function(questionId, fromSkipQuestion) {
+    this.nextQuestion = function(questionId, fromSkipQuestion) { 
         main.questionNum++;
         main.OptNumber = main.OptNumber + 1;
 
@@ -67,16 +67,11 @@ app.controller('singleSurveyController', ['dataService', '$routeParams', functio
         }
 
         if(main.questionNum === main.maxQuestions) {
-
             main.showThankU = true;
-              
-
-        } else {
-
-            main.userAnswer(questionId, main.OptNumber);
-            main.OptNumber = null;
-            return main.questionNum;
-        }
+        } 
+        main.userAnswer(questionId, main.OptNumber);
+        main.OptNumber = null;
+        return main.questionNum;
     };
     this.showNext = function() {
         main.next = true;

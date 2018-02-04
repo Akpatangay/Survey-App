@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
         <div id="jum" class="jumbotron col-xs-12 col-sm-12">
-            <p style="font-weight: bolder;"><u>{{admin.data.surveyTitle}}</u></p>
-            <p style="font-weight: bolder; font-size: 120%;">{{admin.data.surveySubtitle}}</p>
+            <p style="font-weight: bolder;"><u>{{admin.data.surveyTitle | capitalize}}</u></p>
+            <p style="font-weight: bolder; font-size: 120%;">{{admin.data.surveySubtitle | capitalize}}</p>
             <br/>
             <div>
                 <a href="#!/admin/{{admin.surveyId}}/edit">
@@ -12,17 +12,17 @@
                 <a ng-href="#!/admin/{{admin.data.surveyId}}/question/create">
                     <input id="bott" type="button" class="btn btn-primary btn-xs" value=" Create Question" />
                 </a>
-                <input id="bott" type="button" class="btn btn-primary btn-xs" data-toggle="collapse" data-target="#stats" value="Stats" />
+                <input id="bott" type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#stats" value="Stats" ng-click="admin.stats(admin.data.surveyId)" />
             </div>
         </div>
     </div>
     <div class="row" id="sub">
         <div class="jumbotron" id="sub">
-            <p id="inst">INSTRUCTIONS : {{admin.data.instructions}}</p>
+            <p id="inst">INSTRUCTIONS : {{admin.data.instructions | capitalize}}</p>
             <br/>
             <br/>
             <div ng-repeat="query in admin.question">
-                <p id="qu">Question {{$index}}: {{query.questionText}}
+                <p id="qu">Question {{$index + 1}}: {{query.questionText | capitalize}}
                     <a ng-href="#!/admin/{{admin.data.surveyId}}/question/{{query.questionId}}/edit">
                         <input type="button" name="edit question" style="padding: 0.5% !important;" class="glyphicon glyphicon-pencil" value="&#x270f;" />
                     </a>
@@ -30,9 +30,8 @@
                     <br/>
                     <p id="qu">Options:
                         <form id="for">
-                            <div class="radio" ng-repeat="option in query.questionOptions track by $index">
-                                <input style="margin-left: 0 !important" type="radio" name="optradio" />
-                                <label id="for">{{option}}</label>
+                            <div ng-repeat="option in query.questionOptions track by $index">
+                                <label id="for">{{$index + 1}}.{{option | capitalize}}</label>
                             </div>
                         </form>
                     </p>
@@ -47,10 +46,10 @@
                             <input type="button" class="btn btn-default" value="Add Option" ng-click="admin.ShowHide($index)" />
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-4" ng-show="{{query.questionOptions.length}}">
-                            <input type="button" class="btn btn-default" value="Delete Options" ng-click="admin.adminDelOption(query.questionId, $index)" />
+                            <input type="button" class="btn btn-default" value="Delete Options" ng-click="admin.adminDelOption(query.questionId)" />
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-4">
-                            <input type="button" class="btn btn-default" value="Delete Answers" ng-click="admin.adminDelAnswers(query.questionId, $index)" />
+                            <input type="button" class="btn btn-default" value="Delete Answers" ng-click="admin.adminDelAnswers(query.questionId)" />
                         </div>
                         <br/>
                         <br/>
@@ -64,22 +63,35 @@
     <br/>
     <br/>
 </div>
-<div></div>
-<div class="container col-md-6 collapse" id="stats">
-    <div class="jumbotron row coll" id="sub">
-        <table class="table">Question Number:
-            <thead>
-                <tr>
-                    <th>Option Number</th>
-                    <th>Responses</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>dfdsg</td>
-                    <td>gfd</td>
-                </tr>
-            </tbody>
-        </table>
+<div class="container">
+    <div class="modal fade" id="stats" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" ng-repeat="(key, value) in admin.result">
+                    <h4 class="modal-title">Question {{$index + 1}}: {{value.qT}}</h4> 
+                    <div class="modal-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Option Number</th>
+                                    <th>Responses</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="(key, value) in value.stats">
+                                    <td>{{key}}</td>
+                                    <td>{{value}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 </div>

@@ -1,20 +1,20 @@
 <div class="container" ng-show="!single.showThankU">
     <div class="row">
         <div id="jum" class="jumbotron">
-            <p style="font-weight: bolder;"><u>{{single.data.surveyTitle}}</u></p>
-            <p style="font-weight: bolder; font-size: 120%;">{{single.data.surveySubtitle}}</p>
+            <p style="font-weight: bolder;"><u>{{single.data.surveyTitle | capitalize}}</u></p>
+            <p style="font-weight: bolder; font-size: 120%;">{{single.data.surveySubtitle | capitalize}}</p>
         </div>
     </div>
     <div class="row" id="sub">
         <div class="jumbotron" id="sub" style="margin-bottom: 10% !important;">
             <p id="inst">INSTRUCTIONS : {{single.data.instructions}}</p>
             <div> 
-                <p id="qu">Question {{single.questionNum + 1}}: {{single.question[single.questionNum].questionText}}</p>
+                <p id="qu">Question {{single.questionNum + 1}}: {{single.question[single.questionNum].questionText | capitalize}}</p>
                 <p id="qu">Options:
                     <form id="for">
                         <div class="radio" ng-repeat="option in single.question[single.questionNum].questionOptions track by $index">
                             <label id="qu" style="font-size: 105% !important;">
-                                <input type="radio" ng-model="single.OptNumber" name="optradio" ng-change="single.showNext();" ng-value="{{$index}}" />{{option}}</label>
+                                <input type="radio" ng-model="single.OptNumber" name="optradio" ng-change="single.showNext();" ng-value="{{$index}}" />{{option | capitalize}}</label>
                         </div>
                     </form>
                 </p>
