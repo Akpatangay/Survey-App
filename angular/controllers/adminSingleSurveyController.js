@@ -187,14 +187,14 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
                 var resultObj = {};
                 resultObj["qT"] = question.questionText;
                 resultObj["stats"] = {};
-                resultObj["stats"]["skipOption"] = 0;
+                resultObj["stats"]["skipped"] = 0;
                 for (var j = 0; j < question.questionOptions.length; j++) {
                     resultObj["stats"][question.questionOptions[j]] = 0;
                     for (var k = 0; k < question.answers.length; k++) {
                         if (question.answers[k] == j + 1) {
                             resultObj["stats"][question.questionOptions[j]]++;
                         } else if (question.answers[k] == 0 && j == 0) {
-                            resultObj["stats"]["skipOption"]++;
+                            resultObj["stats"]["skipped"]++;
                         }
                     }
                 }
