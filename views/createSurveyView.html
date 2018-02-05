@@ -1,20 +1,25 @@
 <div class="container">
-    <form id="crt" ng-submit="create.createSurveys()">
-        <label id="lb">Survey Title:</label>
-        <br/>
-        <input id="inp" type="text" name="surveyTitle" required="" ng-model="create.surveyTitle"/>
-        <br/>
-        <br/>
-        <label id="lb">Survey Subtitle:</label>
-        <br/>
-        <input id="inp" type="text" name="surveySubtitle" required="" ng-model="create.surveySubtitle"/>
-        <br/>
-        <br/>
-        <label id="lb">Instructions:</label>
-        <br/>
-        <textarea id="txtarea" required="" ng-model="create.instructions"></textarea>
-        <br/>
-        <br/>
-        <input type="submit" value="Create" class="btn" style="font-family: Courier !important; font-weight: bolder; font-size: 125% !important;" />
-    </form>
+    <div class="jumbotron back">
+        <form id="crt" class="form-group" ng-submit="create.createSurveys()">
+            <label id="lb">Survey Title:</label>
+            <br/>
+            <input id="inp" type="text" name="surveyTitle" required="required" placeholder="title" ng-model="create.surveyTitle" />
+            <br/>
+            <br/>
+            <label id="lb">Survey Subtitle:</label>
+            <br/>
+            <input id="inp" type="text" name="surveySubtitle" required="required" placeholder="subtitle" ng-model="create.surveySubtitle" />
+            <br/>
+            <br/>
+            <label id="lb">Instructions:</label>
+            <br/>
+            <textarea id="txtarea" required="required" placeholder="instructions" ng-model="create.instructions"></textarea>
+            <br/>
+            <br/>
+            <!-- submit -->
+            <input type="submit" value="Create" class="btn" style="font-family: Courier !important; font-weight: bolder;padding: 0.8% !important; font-size: 115% !important; color: black !important" />
+            <!-- back -->
+            <a ng-href="#!/admin/allSurveys"><input type="button" value="Back" class="btn" style="font-family: Courier !important; font-size: 115% !important; padding: 0.8% !important;"/></a>
+        </form>
+    </div>
 </div>

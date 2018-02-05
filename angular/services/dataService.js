@@ -3,6 +3,7 @@ app.service('dataService', function($http) {
     var main = this;
     this.url = "https://projectsapi.edwisor.com/api/surveys/";
 
+    //http requests made 
     //surveys section
 
     this.getSurveys = function() {
@@ -11,7 +12,6 @@ app.service('dataService', function($http) {
             url: main.url
         })
     }
-
     this.createSurvey = function(data) {
     	return $http({
     		method: "POST",
@@ -39,7 +39,6 @@ app.service('dataService', function($http) {
             url: main.url + surveyId + '/delete'
         })
     }
-
     //questions section
 
     this.createQuestion = function(surveyId, data) { 
@@ -69,26 +68,23 @@ app.service('dataService', function($http) {
             url   : main.url + 'questions/' + questionId + '/delete'
         })
     }
-
+    
     //options section
 
     this.createOption = function(questionId, data) {
-
         return $http({
             method: "POST",
             url   : main.url + 'questions/' + questionId + '/options/create',
             data  : data
     
         })
-    }
-    
+    } 
     this.deleteOption = function(questionId) {
         return $http({
             method: "POST",
             url: main.url + 'questions/' + questionId + '/options/delete'
         })
     }
-
     //answers section 
 
     this.createAnswer = function(questionId, myData) { 

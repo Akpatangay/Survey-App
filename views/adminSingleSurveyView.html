@@ -1,17 +1,22 @@
+<!-- <loginDirective></loginDirective> -->
 <div class="container">
     <div class="row">
         <div id="jum" class="jumbotron col-xs-12 col-sm-12">
-            <p style="font-weight: bolder;"><u>{{admin.data.surveyTitle | capitalize}}</u></p>
-            <p style="font-weight: bolder; font-size: 120%;">{{admin.data.surveySubtitle | capitalize}}</p>
+            <p id="hdin"><u>{{admin.data.surveyTitle | capitalize}}</u></p>
+            <p id="hding">{{admin.data.surveySubtitle | capitalize}}</p>
             <br/>
             <div>
+                <!-- edit survey -->
                 <a href="#!/admin/{{admin.surveyId}}/edit">
                     <input id="bott" type="button" class="btn btn-primary btn-xs" value=" Edit Survey" />
                 </a>
+                <!-- delete survey -->
                 <button id="bott" type="button" class="btn btn-primary btn-xs" ng-click="admin.deleteSurvey(admin.data.surveyId)">Delete Survey </button>
+                <!-- create question -->
                 <a ng-href="#!/admin/{{admin.data.surveyId}}/question/create">
                     <input id="bott" type="button" class="btn btn-primary btn-xs" value=" Create Question" />
                 </a>
+                <!-- stats -->
                 <input id="bott" type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#stats" value="Stats" ng-click="admin.stats(admin.data.surveyId)" />
             </div>
         </div>
@@ -35,6 +40,7 @@
                             </div>
                         </form>
                     </p>
+                    <!-- form to add option -->
                     <div ng-show="admin.IsVisible[$index]">
                         <form style="margin-left: 0 !important;" ng-submit="admin.adminCretOption(query.questionId, admin.questionOptions)">
                             <input type="text" ng-model="admin.questionOptions" id="txt" />
@@ -42,12 +48,15 @@
                         </form>
                     </div>
                     <div>
+                        <!-- add option -->
                         <div class="col-xs-12 col-sm-6 col-md-4" ng-if="query.questionId">
                             <input type="button" class="btn btn-default" value="Add Option" ng-click="admin.ShowHide($index)" />
                         </div>
+                        <!-- delete option -->
                         <div class="col-xs-12 col-sm-6 col-md-4" ng-show="{{query.questionOptions.length}}">
                             <input type="button" class="btn btn-default" value="Delete Options" ng-click="admin.adminDelOption(query.questionId)" />
                         </div>
+                        <!-- delete answers -->
                         <div class="col-xs-12 col-sm-6 col-md-4">
                             <input type="button" class="btn btn-default" value="Delete Answers" ng-click="admin.adminDelAnswers(query.questionId)" />
                         </div>
@@ -58,11 +67,13 @@
                 <br/>
                 <br/>
             </div>
+            <a ng-href="#!/admin/allSurveys"><input type="button" value="Back" class="btn" style="font-family: Courier !important; font-size: 120% !important; padding: 0.8% !important;"/></a>
         </div>
     </div>
     <br/>
     <br/>
 </div>
+<!-- stats section -->
 <div class="container">
     <div class="modal fade" id="stats" role="dialog">
         <div class="modal-dialog">
@@ -74,7 +85,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Option Number</th>
+                                    <th>Option</th>
                                     <th>Responses</th>
                                 </tr>
                             </thead>

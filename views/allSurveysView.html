@@ -1,15 +1,21 @@
 <div class="container">
-    <div class="row">
+    <div class="jumbotron back row" style="padding: 0.5% !important;">
         <p id="wel">Welcome! Click on any of the below surveys you wish to take.</p>
-    </div>
-    <div class="row survey">
-        <div ng-repeat="data in all.entireData">
-            <a href="#!/survey/{{data.surveyId}}">
-                <div class="jumbotron col-xs-10 col-sm-10 col-md-5">
-                    <p style="font-weight: bolder;"><u>{{data.surveyTitle | capitalize}}</u></p>
-                    <p style="font-size: 120%; font-weight: bolder;">{{data.surveySubtitle | capitalize}}</p>
-                </div>
-            </a>
+        <div class="survey">
+            <div ng-repeat="data in all.entireData">
+                <a href="#!/survey/{{data.surveyId}}">
+                    <div class="jumbotron col-xs-10 col-sm-10 col-md-5" style="margin-left: 3% !important;">
+                        <p id="hdin"><u>{{data.surveyTitle | capitalize}}</u></p>
+                        <p id="hding" ">{{data.surveySubtitle | capitalize}}</p>
+                    </div>
+                </a>
+            </div>
         </div>
+    </div>
+    <div class="col-md-5"></div>
+    <div class="col-md-2">
+        <a href="#!/">
+            <div class="jumbotron jumb" id="cret">Back</div>
+        </a>
     </div>
 </div>

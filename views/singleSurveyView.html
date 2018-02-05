@@ -1,8 +1,8 @@
 <div class="container" ng-show="!single.showThankU">
     <div class="row">
         <div id="jum" class="jumbotron">
-            <p style="font-weight: bolder;"><u>{{single.data.surveyTitle | capitalize}}</u></p>
-            <p style="font-weight: bolder; font-size: 120%;">{{single.data.surveySubtitle | capitalize}}</p>
+            <p id="hdin"><u>{{single.data.surveyTitle | capitalize}}</u></p>
+            <p id="hding">{{single.data.surveySubtitle | capitalize}}</p>
         </div>
     </div>
     <div class="row" id="sub">
@@ -14,7 +14,7 @@
                     <form id="for">
                         <div class="radio" ng-repeat="option in single.question[single.questionNum].questionOptions track by $index">
                             <label id="qu" style="font-size: 105% !important;">
-                                <input type="radio" ng-model="single.OptNumber" name="optradio" ng-change="single.showNext();" ng-value="{{$index}}" />{{option | capitalize}}</label>
+                                <input type="radio" ng-model="single.OptNumber" name="optradio" ng-change="single.showNext();" ng-value="{{$index}}"/>{{option | capitalize}}</label>
                         </div>
                     </form>
                 </p>
@@ -22,12 +22,15 @@
             <br/>
             <br/>
             <div>
+                <!-- Next button -->
                 <div class="col-xs-12 col-sm-12 col-md-3">
                     <input type="button" class="btn btn-default" value="Next" ng-click="single.nextQuestion(single.question[single.questionNum].questionId)" ng-show="single.next"/>
                 </div>
+                <!-- Skip button -->
                 <div class="col-xs-12 col-sm-12 col-md-3">
                     <input type="button" class="btn btn-default" value="Skip" ng-click="single.skipQuestion(single.question[single.questionNum].questionId)" />
                 </div>
+                <!-- End survey button -->
                 <div class="col-xs-12 col-sm-12 col-md-3">
                     <input type="button" class="btn btn-default" value="End Survey" ng-click="single.endSurvey()" />
                 </div>
@@ -36,6 +39,7 @@
         </div>
     </div>
 </div>
+<!-- thank you note to show after the end of survey -->
 <div class="container" ng-show="single.showThankU">
     <div id="wel">
         <p id="end">Thank you for taking the time to complete this survey. We truly value the information you have provided. </p>

@@ -1,22 +1,25 @@
 <div class="container">
-    <form id="crt" ng-submit="edit.editSurveys(edit.surveyId)">
-        <label id="lb">Survey Title:</label>
-        <br/>
-        <input id="inp" type="text" name="surveyTitle" ng-model="edit.surveyTitle" required="" />
-        <br/>
-        <br/>
-        <label id="lb">Survey Subtitle:</label>
-        <br/>
-        <input id="inp" type="text" name="surveySubtitle" ng-model="edit.surveySubtitle" required="" />
-        <br/>
-        <br/>
-        <label id="lb">Instructions:</label>
-        <br/>
-        <textarea ng-model="edit.instructions" required=""></textarea>
-        <br/>
-        <br/>
-        <input type="submit" value="Edit" class="btn" style="font-family: Courier !important; font-weight: bolder; font-size: 125% !important;" />
-    </form>
+    <div class="row" style="margin-right: 0 !important;">
+        <form id="crt" class="form-group jumbotron back" ng-submit="edit.editSurveys(edit.surveyId)">
+            <label id="lb">Survey Title:</label>
+            <br/>
+            <input id="inp" type="text" name="surveyTitle" ng-model="edit.surveyTitle" required="" />
+            <br/>
+            <br/>
+            <label id="lb">Survey Subtitle:</label>
+            <br/>
+            <input id="inp" type="text" name="surveySubtitle" ng-model="edit.surveySubtitle" required="" />
+            <br/>
+            <br/>
+            <label id="lb">Instructions:</label>
+            <br/>
+            <textarea ng-model="edit.instructions" required=""></textarea>
+            <br/>
+            <br/>
+            <!-- submit -->
+            <input type="submit" value="Edit" class="btn" style="font-family: Courier !important; color: black; font-size: 110% !important; padding: 0.8% !important" />
+            <!-- back -->
+            <a ng-href="#!/admin/{{edit.surveyId}}"><input type="button" value="Back" class="btn" style="font-family: Courier !important; font-size: 110% !important; padding: 0.8% !important;"/></a>
+        </form>
+    </div>
 </div>
-
-

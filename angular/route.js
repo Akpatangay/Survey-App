@@ -2,53 +2,56 @@ app.config(['$routeProvider', function($routeProvider) {
 
     $routeProvider
         .when('/', {
+            // location of the template
             templateUrl : 'views/mainView.html',
+            // Which controller it should use 
             controller  : 'mainController',
+            // what is the alias of that controller
             controllerAs: 'main'
         })
         .when('/survey/allSurveys', {
-            templateUrl:  'views/allSurveysView.html',
-            controller:   'allSurveyController',
+            templateUrl : 'views/allSurveysView.html',
+            controller  : 'allSurveyController',
             controllerAs: 'all'
         })
         .when('/admin/allSurveys', {
-            templateUrl:  'views/adminAllSurveyView.html',
-            controller:   'allSurveyController',
+            templateUrl : 'views/adminAllSurveyView.html',
+            controller  : 'allSurveyController',
             controllerAs: 'all'
         })
         .when('/admin/createSurvey', {
-            templateUrl:  'views/createSurveyView.html',
-            controller:   'createSurveyController',
+            templateUrl : 'views/createSurveyView.html',
+            controller  : 'createSurveyController',
             controllerAs: 'create'
         })
         .when('/survey/:surveyId', {
-            templateUrl:  'views/singleSurveyView.html',
-            controller:   'singleSurveyController',
+            templateUrl : 'views/singleSurveyView.html',
+            controller  : 'singleSurveyController',
             controllerAs: 'single'
         })
         .when('/admin/:surveyId/edit', {
-            templateUrl:  'views/editSurveyView.html',
-            controller:   'editSurveyController',
+            templateUrl : 'views/editSurveyView.html',
+            controller  : 'editSurveyController',
             controllerAs: 'edit'
         })
         .when('/admin/:surveyId/delete', {
-            templateUrl:  'views/editSurveyView.html',
-            controller:   'allSurveyController',
+            templateUrl : 'views/editSurveyView.html',
+            controller  : 'allSurveyController',
             controllerAs: 'all'
         })
         .when('/admin/:surveyId/question/create', {
-            templateUrl:  'views/createQuestionView.html',
-            controller:   'createQuestionController',
+            templateUrl : 'views/createQuestionView.html',
+            controller  : 'createQuestionController',
             controllerAs: 'query'
         })
         .when('/admin/:surveyId/question/:questionId/edit', {
-            templateUrl:  'views/editQuestionView.html',
-            controller:   'editQuestionController',
+            templateUrl : 'views/editQuestionView.html',
+            controller  : 'editQuestionController',
             controllerAs: 'editQ'
         })
         .when('/admin/:surveyId', {
-            templateUrl:  'views/adminSingleSurveyView.html',
-            controller:   'adminSingleSurveyController',
+            templateUrl : 'views/adminSingleSurveyView.html',
+            controller  : 'adminSingleSurveyController',
             controllerAs: 'admin'
         })
         .otherwise(

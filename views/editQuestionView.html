@@ -1,10 +1,13 @@
 <div class="container">
-	<div class="row">
+	<div class="row jumbotron back">
 		<form id="crt" ng-submit="editQ.adminEditQuestions(editQ.questionId, editQ.questionText)">
-			<label style="background-color: rgb(250, 115, 27); font-weight: bolder; font-family: Courier; padding: 0.5% !important; ">Edit Question</label><br/>
+			<label style="font-weight: bolder; font-family: Courier; padding: 0.5% !important;">Edit Question</label><br/>
 			<textarea ng-model="editQ.questionText" required="required"></textarea>
 			<br/>
-			<input type="submit" value="Edit" class="btn" style="font-family: Courier !important; font-weight: bolder; font-size: 125% !important; padding: 0.5% !important;" />
+			<!-- submit -->
+			<input type="submit" value="Edit" class="btn" style="font-family: Courier !important; font-size: 110% !important; padding: 0.8% !important; color: black !important" />
+			<!-- back -->
+			<a ng-href="#!/admin/{{editQ.surveyId}}"><input type="button" value="Back" class="btn" style="font-family: Courier !important; font-size: 110% !important; padding: 0.8% !important;"/></a>
 		</form>
 	</div>
 </div>

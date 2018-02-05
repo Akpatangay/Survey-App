@@ -2,7 +2,6 @@ app.controller('mainController', ['$scope', '$location', function($scope, $locat
 
 	var uName = "admin";
 	var pwd = "password";
-
     $scope.formSubmit = function(ev) { 
     	ev.preventDefault();
     	if($scope.username == "" || $scope.username == null || $scope.username != uName || $scope.password == "" || $scope.password == null || $scope.password != pwd ) {

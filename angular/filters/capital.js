@@ -1,3 +1,4 @@
+// This filter capitalizes first letter of every sentence.
 app.filter('capitalize', function() {
     return function(input, scope) {
         if (input != null) {
