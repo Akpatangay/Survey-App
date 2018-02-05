@@ -1,4 +1,5 @@
-<div class="container">
+<login-directive></login-directive>
+<div class="container" ng-if="loggedIn">
 	<div class="row">
 		<form id="crt" class="jumbotron back" ng-submit="query.cretQuestion(query.surveyId)">
 			<label id="q"><u>Create Question</u></label><br/>

@@ -21,6 +21,9 @@
             <div class="navbar-header">
                 <a class="navbar-brand colr" href="#/">HOME</a>
             </div>
+            <div class="nav navbar-nav navbar-right" ng-if="loggedIn">
+                <a ng-href="#!/" class="navbar-brand colr">LOGOUT</a>
+            </div>
         </div>
     </nav>
     <br/>
@@ -50,6 +53,8 @@
     <!-- filter section -->
     <script type="text/javascript" src="angular/filters/capital.js"></script>
     <script type="text/javascript" src="angular/filters/customObjectFilter.js"></script>
+    <!-- directive section -->
+    <script type="text/javascript" src="angular/directives/loginDirective.js"></script>
     <!-- controller section -->
     <script type="text/javascript" src="angular/controllers/mainController.js"></script>
     <script type="text/javascript" src="angular/controllers/allSurveyController.js"></script>

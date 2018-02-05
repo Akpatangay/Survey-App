@@ -1,4 +1,5 @@
-<div class="container">
+<login-directive></login-directive>
+<div class="container" ng-if="loggedIn">
     <div class="row" style="margin-right: 0 !important;">
         <form id="crt" class="form-group jumbotron back" ng-submit="edit.editSurveys(edit.surveyId)">
             <label id="lb">Survey Title:</label>

@@ -1,4 +1,5 @@
-<div class="container">
+<login-directive></login-directive>
+<div class="container" ng-if="loggedIn">
 	<div class="row jumbotron back">
 		<form id="crt" ng-submit="editQ.adminEditQuestions(editQ.questionId, editQ.questionText)">
 			<label style="font-weight: bolder; font-family: Courier; padding: 0.5% !important;">Edit Question</label><br/>

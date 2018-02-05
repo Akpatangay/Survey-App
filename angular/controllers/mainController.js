@@ -1,12 +1,13 @@
-app.controller('mainController', ['$scope', '$location', function($scope, $location) {
+app.controller('mainController', ['$scope', '$rootScope', '$location', function($scope, $location, $rootScope) {
 
 	var uName = "admin";
 	var pwd = "password";
     $scope.formSubmit = function(ev) { 
     	ev.preventDefault();
     	if($scope.username == "" || $scope.username == null || $scope.username != uName || $scope.password == "" || $scope.password == null || $scope.password != pwd ) {
-    		alert("Please enter valid username and password.");
+    		alert("Please enter valid username or password.");
     	} else {
+            $rootScope.loggedIn = true;
     		$location.path('/admin/allSurveys');
     	}
     };
