@@ -20,7 +20,6 @@ app.controller('editQuestionController', ['dataService', '$routeParams', '$locat
     }();
 
     this.adminEditQuestions = function(questionId, questionText) {
-        debugger;
         data = { questionText: questionText };
         if (confirm("Are you sure you want to make changes?")) {
             dataService.editQuestion(questionId, data)

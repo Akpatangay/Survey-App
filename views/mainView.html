@@ -1,21 +1,20 @@
-<div class="container">
-    <div class="container col-xs-12 col-sm-12 col-md-6">
-        <form id="log" class="jumbotron back" action="/action_page.php" ng-submit="formSubmit($event)">
-            <!-- admin login section -->
-            <div class="form-group">
-                <label id="man"><u>MANAGE SURVEY</u></label> <br/>
-                <label id="lab">Username: (Admin Login)</label>
-                <input type="text" class="form-control"  placeholder="Enter username" name="username" ng-model="username"/>
-            </div>
-            <div class="form-group">
-                <label id="lab" for="pwd">Password:</label>
-                <input type="password" class="form-control" placeholder="Enter password" name="password" ng-model="password"/>
-            </div>
-            <button type="submit" class="btn btn-default" style="font-weight: bolder;">Submit</button>
-        </form>
-    </div>
-    <!-- button to take survey -->
-    <div class="container col-xs-12 col-sm-12 col-md-6">
-        <a class="button" role="button" href="#!/survey/allSurveys"> <img id="take" src="images/icon1.png" /> </a>
-    </div>
+<div class="container col-xs-12 col-sm-12 col-md-6">
+    <form id="log" class="jumbotron back" action="/action_page.php" ng-submit="formSubmit($event)">
+        <!-- admin login section -->
+        <div class="form-group">
+            <label id="man"><u>MANAGE SURVEY</u></label>
+            <br/>
+            <label id="lab">Username: (Admin Login)</label>
+            <input type="text" class="form-control" placeholder="Enter username" name="username" ng-model="username" />
+        </div>
+        <div class="form-group">
+            <label id="lab" for="pwd">Password:</label>
+            <input type="password" class="form-control" placeholder="Enter password" name="password" ng-model="password" />
+        </div>
+        <button type="submit" class="btn btn-default" style="font-weight: bolder;">Submit</button>
+    </form>
+</div>
+<!-- button to take survey -->
+<div class="container col-xs-12 col-sm-12 col-md-6">
+    <a class="button" role="button" href="#!/survey/allSurveys"> <img id="take" src="images/icon1.png" /> </a>
 </div>

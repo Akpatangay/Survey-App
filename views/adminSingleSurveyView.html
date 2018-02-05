@@ -49,16 +49,16 @@
                     </div>
                     <div>
                         <!-- add option -->
-                        <div class="col-xs-12 col-sm-6 col-md-4" ng-if="query.questionId">
-                            <input type="button" class="btn btn-default" value="Add Option" ng-click="admin.ShowHide($index)" />
+                        <div class="col-xs-5 col-sm-4 col-md-4">
+                            <input id="sur" type="button" class="btn btn-default" value="Add Option" ng-click="admin.ShowHide($index)" />
                         </div>
                         <!-- delete option -->
-                        <div class="col-xs-12 col-sm-6 col-md-4" ng-show="{{query.questionOptions.length}}">
-                            <input type="button" class="btn btn-default" value="Delete Options" ng-click="admin.adminDelOption(query.questionId)" />
+                        <div class="col-xs-5 col-sm-4 col-md-4" ng-show="{{query.questionOptions.length}}">
+                            <input id="sur" type="button" class="btn btn-default" value="Delete Options" ng-click="admin.adminDelOption(query.questionId)" />
                         </div>
                         <!-- delete answers -->
-                        <div class="col-xs-12 col-sm-6 col-md-4">
-                            <input type="button" class="btn btn-default" value="Delete Answers" ng-click="admin.adminDelAnswers(query.questionId)" />
+                        <div class="col-xs-5 col-sm-4 col-md-4">
+                            <input id="sur" type="button" class="btn btn-default" value="Delete Answers" ng-click="admin.adminDelAnswers(query.questionId)" />
                         </div>
                         <br/>
                         <br/>

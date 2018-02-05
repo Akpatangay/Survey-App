@@ -2,8 +2,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
 
     var main = this;
     this.surveyId = $routeParams.surveyId;
-    this.IsVisible = [];
-    this.result = [];
+    this.IsVisible = [];//to store the question index for adding option
     this.ShowHide = function(index) {
         //If DIV is visible it will be hidden and vice versa.
         main.IsVisible[index] = main.IsVisible[index] ? false : true;
@@ -46,21 +45,6 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
                 console.log(response);
             });
     }();
-
-    this.adminEditQuestions = function(questionId) {
-        data = { questionText: main.questionText };
-        if (confirm("Are you sure you want to make changes?")) {
-            dataService.editQuestion(questionId, data)
-                .then(function success(response) {
-                    alert("Question edited successfully!");
-                    console.log(response);
-                    $route.reload();
-                }, function error(response) {
-                    alert("some error occured, check the console.");
-                    console.log(response);
-                })
-        }
-    };
 
     this.adminDelQuestion = function(questionId) {
         if (confirm("Are you sure you want to delete?")) {
@@ -142,11 +126,11 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
                                 resultObj["stats"]["skipped"]++;
                             }
                         }
-                    } //finally pushing the object of each question inside the result array
-                } else {
+                    } 
+                } else {//if no options exist
                     resultObj["stats"][question.questionOptions[j]] = "";
                 }
-                main.result.push(resultObj);
+                main.result.push(resultObj);//finally pushing the object of each question inside the result array
             }
         }
 

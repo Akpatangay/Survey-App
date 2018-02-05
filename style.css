@@ -56,7 +56,6 @@ img {
     margin-left: 20%;
 }
 
-.colr,
 .btn {
     background-color: rgb(250, 115, 27) !important;
     border: none !important;
@@ -69,8 +68,10 @@ img {
 }
 
 .colr {
-    color: black !important;
+    color: rgb(250, 115, 27) !important;
     font-family: Courier;
+    border: none !important;
+    font-weight: bolder !important;
 }
 
 .coll {
@@ -264,16 +265,29 @@ th,
 td {
     text-align: center !important;
 }
+
 #q {
-    font-weight: bolder; 
-    font-family: Courier; 
-    padding: 0.5% !important; 
-    font-size: 130% 
+    font-weight: bolder;
+    font-family: Courier;
+    padding: 0.5% !important;
+    font-size: 130%
 }
 
-@media screen and (min-width: 800px) and (max-width: 992px) {
+@media screen and (min-width: 770px) and (max-width: 992px) {
     #bot {
-        padding: 0.8% !important;
+        padding: 1.5% !important;
+    }
+    #sur {
+        padding: 3% !important;
+    }
+    #main {
+        margin-left: 14% !important;
+    }
+}
+@media screen and (max-width: 770px) {
+    .navRight {
+        margin-left: 0 !important;
+        margin-top: 2% !important;
     }
 }
 
@@ -317,11 +331,17 @@ td {
         padding: 2% !important;
         font-size: 90% !important;
     }
-    #q, #lab,
-    #hdin {
+    #sur, #bott{
+        font-size: 90% !important;
+    }
+    #sur {
+        padding: 1.5% !important;
+    }
+    #q,
+    #lab {
         font-size: 115% !important;
     }
-    #man {
+    #hdin, #man {
         font-size: 130% !important;
     }
     #hding {
@@ -329,10 +349,7 @@ td {
     }
     #cret {
         padding: 1% !important;
-        font-size: 90% !important;
-    }
-    .colr {
-        font-size: 98% !important;
+        font-size: 100% !important;
     }
     #take {
         max-width: 75% !important;
@@ -340,7 +357,8 @@ td {
         margin-left: 15% !important;
         margin-bottom: 5% !important;
     }
-    #lb, input::placeholder {
+    #lb,
+    input::placeholder {
         font-size: 110% !important;
     }
 }
@@ -358,10 +376,22 @@ td {
         margin-left: 10% !important;
         margin-bottom: 5% !important;
     }
-    #end, #wel, #q, #lb {
+    #end,
+    #wel,
+    #q,
+    #lb {
         font-size: 110% !important;
     }
     input::placeholder {
         font-size: 90% !important;
+    }
+    .navbar-right {
+        margin-left: 0 !important margin-top: 2% !important;
+    }
+    #hdin {
+        font-size: 120% !important;
+    }
+    #hding {
+        font-size: 100% !important;
     }
 }

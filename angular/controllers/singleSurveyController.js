@@ -5,6 +5,7 @@ app.controller('singleSurveyController', ['dataService', '$routeParams', functio
     this.questionNum = 0; //initializing questNum to zero to increment when the next/skip button is clicked
     this.showThankU = false; //to hide the thank you message when 
     this.next = false;
+
     //to fetch a single survey when the page loads
     this.fetchSingleSurvey = function() {
         dataService.getSingleSurvey(main.surveyId)
@@ -16,6 +17,7 @@ app.controller('singleSurveyController', ['dataService', '$routeParams', functio
                 console.log(response);
             });
     }();
+
     //to fetch all questions when the page loads
     this.fetchQuestions = function() {
         dataService.getQuestions(main.surveyId)
@@ -28,6 +30,7 @@ app.controller('singleSurveyController', ['dataService', '$routeParams', functio
                 console.log(response);
             });
     }();
+
     //to store the answers chosen by user
     this.userAnswer = function(questionId, OptNumber) {
         myData = { selectedOptionNumber: OptNumber };
@@ -39,6 +42,7 @@ app.controller('singleSurveyController', ['dataService', '$routeParams', functio
                 console.log(response);
             });
     };//end of userAnswer function
+
     //to diplay single question on clicking next button
     this.nextQuestion = function(questionId, fromSkipQuestion) {
         //to display next question on clicking next
@@ -56,17 +60,21 @@ app.controller('singleSurveyController', ['dataService', '$routeParams', functio
         main.userAnswer(questionId, main.OptNumber);
         //option number is made null for each question as it is getting incremented above
         main.OptNumber = null;
+        //next is assigned false for every question
         main.next = false;
         return main.questionNum;
     };
+
     //to show the next button when an option is selected
     this.showNext = function() {
         main.next = true;
     };
+
     //function invoked on clicking skip option
     this.skipQuestion = function(questionId) {
         main.nextQuestion(questionId, true);
     };
+    
     //function to show thank you if the user wishes to end the survey in between
     this.endSurvey = function() {
         if (confirm("Are you sure you want to end the survey?")) {
