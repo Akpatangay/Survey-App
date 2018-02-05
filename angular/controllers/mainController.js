@@ -1,4 +1,4 @@
-app.controller('mainController', ['$scope', '$rootScope', '$location', function($scope, $location, $rootScope) {
+app.controller('mainController', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
 
 	var uName = "admin";
 	var pwd = "password";

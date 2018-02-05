@@ -144,7 +144,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
                         }
                     } //finally pushing the object of each question inside the result array
                 } else {
-                    resultObj["stats"][question.questionOptions[j]] = "Undefined";
+                    resultObj["stats"][question.questionOptions[j]] = "";
                 }
                 main.result.push(resultObj);
             }
