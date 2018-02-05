@@ -120,7 +120,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
         }
     };
 
-    this.stats = function(surveyId) { 
+    this.stats = function(surveyId) {
         var questions = main.question;
         main.result = []; //empty array to store the question text and stats
         if (questions) {
@@ -130,18 +130,22 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
                 resultObj["qT"] = question.questionText;
                 resultObj["stats"] = {};
                 resultObj["stats"]["skipped"] = 0; //'skipped' to be zero for every question initially
-                for (var j = 0; j < question.questionOptions.length; j++) { 
-                    resultObj["stats"][question.questionOptions[j]] = 0;
-                    for (var k = 0; k < question.answers.length; k++) {
-                        //condition to match the option with the user's answer and increment the count if matched 
-                        if (question.answers[k] == j + 1) { 
-                            resultObj["stats"][question.questionOptions[j]]++;
-                        //condition to iterate only once whenever the question is skipped ie, answer should be zero    
-                        } else if (question.answers[k] == 0 && j == 0) {
-                            resultObj["stats"]["skipped"]++;
+                if (question.questionOptions.length) {
+                    for (var j = 0; j < question.questionOptions.length; j++) {
+                        resultObj["stats"][question.questionOptions[j]] = 0;
+                        for (var k = 0; k < question.answers.length; k++) {
+                            //condition to match the option with the user's answer and increment the count if matched 
+                            if (question.answers[k] == j + 1) {
+                                resultObj["stats"][question.questionOptions[j]]++;
+                                //condition to iterate only once whenever the question is skipped ie, answer should be zero    
+                            } else if (question.answers[k] == 0 && j == 0) {
+                                resultObj["stats"]["skipped"]++;
+                            }
                         }
-                    }
-                }//finally pushing the object of each question inside the result array
+                    } //finally pushing the object of each question inside the result array
+                } else {
+                    resultObj["stats"][question.questionOptions[j]] = "Undefined";
+                }
                 main.result.push(resultObj);
             }
         }
