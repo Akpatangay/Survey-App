@@ -25,6 +25,7 @@ app.controller('adminSingleSurveyController', ['dataService', '$route', '$routeP
             dataService.deleteSurvey(main.surveyId)
                 .then(function success(response) {
                     alert("Survey deleted successfully!");
+                    main.data.splice(index, 1);
                     console.log(response);
                     $location.path('/admin/allSurveys')
                 }, function error(response) {
